@@ -15,7 +15,7 @@
         http://www.springframework.org/schema/tx/spring-tx-4.0.xsd ">
 
 	<!-- 可以扫描controller、service、... -->
-	<context:component-scan base-package="com.backend.*"></context:component-scan>
+	<context:component-scan base-package="com.jw.*"></context:component-scan>
 
 	<!-- 视图解析器 解析jsp解析，默认使用jstl标签，classpath下的得有jstl的包 -->
 	<bean
@@ -25,7 +25,13 @@
 		<!-- 配置jsp路径的后缀 -->
 		<property name="suffix" value=".jsp" />
 	</bean>
+	
 	<mvc:annotation-driven />
-	<mvc:default-servlet-handler/>
+	
+	<mvc:default-servlet-handler />
+	
+	<!-- swagger访问界面 -->
+	<mvc:resources mapping="swagger-ui.html" location="classpath:/META-INF/resources/"/>  
+	<mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"/> 
 	
 </beans>
